@@ -5,25 +5,25 @@ const colors = {
     wrapperBackground: '#9df2b5',
     headerBackground: '#b8e0c3',
     headerColor: 'black',
-    photoBorderColor: 'black'
+    photoBorderColor: '#026317'
   },
   blue: {
     wrapperBackground: '#0b3ad6',
     headerBackground: '#4a74ff',
     headerColor: 'white',
-    photoBorderColor: '#73448C'
+    photoBorderColor: '#002566'
   },
   pink: {
-    wrapperBackground: '#879CDF',
-    headerBackground: '#FF8374',
+    wrapperBackground: '#c668e3',
+    headerBackground: '#e00af7',
     headerColor: 'white',
-    photoBorderColor: '#FEE24C'
+    photoBorderColor: '#915f94'
   },
   red: {
-    wrapperBackground: '#DE9967',
+    wrapperBackground: '#ff6a3d',
     headerBackground: '#870603',
     headerColor: 'white',
-    photoBorderColor: 'white'
+    photoBorderColor: '#6e1e05'
   }
 };
 
