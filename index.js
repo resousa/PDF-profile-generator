@@ -33,7 +33,6 @@ const init = () => {
       axios.get(queryURL).then(res => {
         let layout = layoutHTML(res, stars);
         html = html + layout;
-        console.log(stars);
 
         fs.writeFile(`${user}.html`, html, err => {
           if (err) {
