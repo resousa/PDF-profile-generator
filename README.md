@@ -27,7 +27,7 @@ Project created with :
 
 The profile generator takes in user input with node.js. The user must input a GitHub repo and a choose a desired color. The generator then takes info from the GitHub API to create a resume. The resume is created in an HTML and PDF file. the gif above shows the process of inputing information and viewing the HTML page. Below is a picture of the PDF produced.
 
-![profile-generator-demo](https://github.com/resousa/PDF-profile-generator/blob/master/demo.gif?raw=true)
+![profile-generator-demo](https://github.com/resousa/PDF-profile-generator/blob/master/demopdf.PNG?raw=true)
 
 ### Authors
 
