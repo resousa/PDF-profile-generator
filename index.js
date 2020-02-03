@@ -24,28 +24,34 @@ const init = () => {
   inquirer.prompt(questions).then(res => {
     const user = res.name;
     const queryURL = `https://api.github.com/users/${user}`;
+    const queryStar = `${queryURL}/starred`;
     let html = generatingHTML.generateHTML(res);
-  
-    axios.get(queryURL).then(res => {
-      let layout = layoutHTML(res);
-      html = html + layout;
 
-      fs.writeFile(`${user}.html`, html, err => {
-        if (err) {
-          return console.log.error(err);
-        }
-        console.log("Your profile has been created successfully!");
+    axios.get(queryStar).then(res => {
+      let stars = res.data.length;
+
+      axios.get(queryURL).then(res => {
+        let layout = layoutHTML(res, stars);
+        html = html + layout;
+        console.log(stars);
+
+        fs.writeFile(`${user}.html`, html, err => {
+          if (err) {
+            return console.log.error(err);
+          }
+          console.log("Your profile has been created successfully!");
+        });
+
+        pdf.create(html).toFile(`./${user}.pdf`, err => {
+          if (err) return console.error(err);
+        });
       });
-      
-      pdf.create(html).toFile(`./${user}.pdf`, err => {
-        if (err) return console.error(err);
-      });
-    }); 
+    });
   });
 };
 init();
 
-const layoutHTML = res => {
+const layoutHTML = (res, stars) => {
   return `
   <div class="wrapper">
     <div class="container">
@@ -80,7 +86,7 @@ const layoutHTML = res => {
         <div class="row">
           <div class="col card">
             <h3>GitHub Stars</h3>
-            <h4></h4>
+            <h4>${stars}</h4>
           </div>
             <div class="col card">
             <h3>Following</h3>
